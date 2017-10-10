@@ -32,7 +32,10 @@ type logger interface {
 	Debugf(string, ...interface{})
 }
 
-func NewClient(key, token string) *Client {
+func NewClient(key, token string,c *http.Client) *Client {
+	if c == nil {
+		c = http.DefaultClient
+	}
 	return &Client{
 		client:   http.DefaultClient,
 		BaseURL:  DEFAULT_BASEURL,
