@@ -37,7 +37,7 @@ func NewClient(key, token string,c *http.Client) *Client {
 		c = http.DefaultClient
 	}
 	return &Client{
-		client:   http.DefaultClient,
+		client:   c,
 		BaseURL:  DEFAULT_BASEURL,
 		Key:      key,
 		Token:    token,
